@@ -1,0 +1,53 @@
+<?php
+
+namespace Lefeto\ReservationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Residence
+ *
+ * @ORM\Table(name="residence")
+ * @ORM\Entity(repositoryClass="Lefeto\ReservationBundle\Repository\ResidenceRepository")
+ */
+class Residence
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NomResidence", type="string", length=255)
+     */
+    private $nomResidence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseResidence", type="string", length=255)
+     */
+    private $adresseResidence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TelephoneResidence", type="string", length=255)
+     */
+    private $telephoneResidence;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TypeLogement", mappedBy="residence")
+     */
+    private $typelogements;
+
+
+
+}
+
